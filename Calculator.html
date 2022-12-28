@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+
+<style>
+	
+body  
+{  
+width: 300px;  
+height: 550px;  
+margin: auto;
+margin-top: 60px;
+border: 3px solid skyblue;  
+border-radius: 5px;  
+padding: 20px;
+padding-top: 5px;
+padding-left: 35px;
+}
+  
+button  
+{  
+width: 20px;
+margin: center;
+background-color: grey;  
+color: white;  
+border: 3px solid lightgray;  
+    border-radius: 5px;
+    padding: 26px;  
+    margin: 5px;  
+    font-size: 15px;
+margin-bottom: -1px;
+cursor: pointer;
+}
+button:hover
+{
+color: grey;
+background-color: white;
+transition: 0.5s ease-in-out;
+}
+
+#display
+{
+background-color: lightgray;
+color: grey;
+margin: auto;
+width: 88%;
+border-top: 3px solid black;
+border-left: 3px solid black;
+border-right: 3px solid black;
+border-bottom: none;
+border-radius: 1px;
+padding-top: 20px;
+padding-left: 20px;
+font-size: 16px;
+text-align: left;
+}
+#result
+{
+background-color: lightgray;
+color: black;
+margin: auto;
+margin-bottom: 15px;
+width: 88%;
+border-top: none;
+border-left: 3px solid black;
+border-right: 3px solid black;
+border-bottom: 3px solid black;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 20px;
+font-size: 30px;
+text-align: right;
+}
+
+#AC, #Del
+{  
+width: 25px;  
+color: white;  
+border: 3px solid lightgray;  
+    border-radius: 5px;  
+    padding: 16px;
+    padding-left: 47px;
+    padding-right: 70px;  
+    margin: 8.5px;  
+    font-size: 15px;
+    text-align: center;  
+}
+#AC
+{
+border: 3px solid pink;
+background-color: red;
+}
+#AC:hover
+{
+color: red;
+background-color: white;
+transition: 0.5s ease-in-out;
+}
+#Del
+{
+border: 3px solid lightblue;
+background-color: blue;
+}
+#Del:hover
+{
+color: blue;
+background-color: white;
+transition: 0.5s ease-in-out;
+}
+#Ans, #Div, #Mult, #Sub, #Add
+{
+border: 3px solid cadetblue;
+background-color: teal;
+color: white;
+}
+#Ans:hover, #Div:hover, #Mult:hover, #Sub:hover, #Add:hover
+{
+color: teal;
+background-color: white;
+transition: 0.5s ease-in-out;
+}
+
+</style>
+</head>
+<body>
+	<p>Calculator</p>
+	<input type="text" name="" id="display" disabled="disabled"></input>
+	<input type="text" name="" id="result" disabled="disabled"></input>
+	<br/>
+	<button id="AC" onclick="allClear()">Clear</button>
+
+	<button id="Del" onclick="document.getElementById('display').value = document.getElementById('display').value.slice(0,-1)">Del</button>
+	
+	<br/>
+
+	<button id="Seven" onclick="document.getElementById('display').value += '7'">7</button>
+
+	<button id="Eight" onclick="document.getElementById('display').value += '8'">8</button>
+
+	<button id="Nine" onclick="document.getElementById('display').value += '9'">9</button>
+
+	<button id="Div" onclick="document.getElementById('display').value += '/'">/</button>
+		
+	<br/>
+
+	<button id="Four" onclick="document.getElementById('display').value += '4'">4</button>
+
+	<button id="Five" onclick="document.getElementById('display').value += '5'">5</button>
+
+	<button id="Six" onclick="document.getElementById('display').value += '6'">6</button>
+
+	<button id="Mult" onclick="document.getElementById('display').value += '*'">X</button>
+
+	<br/>
+
+	<button id="One" onclick="document.getElementById('display').value += '1'">1</button>
+
+	<button id="Two" onclick="document.getElementById('display').value += '2'">2</button>
+
+	<button id="Three" onclick="document.getElementById('display').value += '3'">3</button>
+
+	<button id="Sub" onclick="document.getElementById('display').value += '-'">-</button>
+	
+	<br/>
+
+	<button id="Zero" onclick="document.getElementById('display').value += '0'">0</button>
+
+	<button id="Point" onclick="document.getElementById('display').value += '.'">.</button>
+
+	<button id="Ans" onclick="result()">=</button>
+
+	<button id="Add" onclick="document.getElementById('display').value += '+'">+</button>
+	<!-- document.getElementById('result').value = eval(document.getElementById('display').value) -->
+
+	<script type="text/javascript">
+		let result = () =>{
+			let display = document.getElementById('display').value;
+			try{
+				document.getElementById('result').value = eval(display);
+			}
+			catch(err){
+				document.getElementById('result').value = "Syntax Error";
+				console.log(err);
+			}
+		}
+
+		let allClear = () =>{
+			number = '';
+			document.getElementById('display').value = '';
+			document.getElementById('result').value = '';
+		}
+		let clear = () =>{
+			number = '';
+			document.getElementById('display').value = '';
+		}
+
+	</script>
+</body>
+</html>
